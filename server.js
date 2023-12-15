@@ -60,7 +60,7 @@ app.get("/magic/:question", (req, res) => {
 
   const ranRes = answer[Math.floor(Math.random() * answer.length)];
 
-  res.send(`<h1>a${question}?</h1> <h2>${ranRes}</h2>`);
+  res.send(`<h1>${question}?</h1> <h2>${ranRes}</h2>`);
 });
 
 app.listen(3000, () => {
