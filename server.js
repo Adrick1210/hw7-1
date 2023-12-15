@@ -6,6 +6,12 @@ const app = express();
 // Greeting
 //=================================
 
+app.get("/greeting", (req, res) => {
+  res.send(
+    `<img src="https://media3.giphy.com/media/xTiIzJSKB4l7xTouE8/giphy.gif?cid=6c09b9521qhuhttkffg9blgx8aq0yw1aeq6xh7sdkj3kgclz&ep=v1_gifs_search&rid=giphy.gif&ct=g">`
+  );
+});
+
 app.get("/greeting/:name", (req, res) => {
   const name = req.params.name;
   res.send(`<h1>Hello there, ${name}</h1>`);
@@ -52,11 +58,15 @@ const answer = [
 app.get("/magic/:question", (req, res) => {
   const question = req.params.question;
 
-  const ranRes = answer[Math.floor(Math.random() * answer.length)]
-  
-  res.send(`<h1>${question}?</h1> <h2>${ranRes}</h2>`);
+  const ranRes = answer[Math.floor(Math.random() * answer.length)];
+
+  res.send(`<h1>a${question}?</h1> <h2>${ranRes}</h2>`);
 });
 
 app.listen(3000, () => {
   console.log("I am working");
 });
+
+//=================================
+// Please look in Pass-it-around for more...
+//=================================
