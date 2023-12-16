@@ -63,10 +63,37 @@ app.get("/magic/:question", (req, res) => {
   res.send(`<h1>${question}?</h1> <h2>${ranRes}</h2>`);
 });
 
-app.listen(3000, () => {
-  console.log("I am working");
-});
-
 //=================================
 // Please look in Pass-it-around for more...
 //=================================
+
+// bonus
+
+//=================================
+// Fibonacci
+//=================================
+
+app.get("/fib/:num", (req, res) => {
+  const num = req.params.num;
+  const result = isFib(num);
+  if (result) {
+    res.send(`<h1>${num}</h1> <h2>Very good. It's a fibonacci</h2>`);
+  } else {
+    res.send(`<h1>${num}</h1> <h2>I can tell this is not a fibonacci..</h2>`);
+  }
+});
+
+// Check for perfect square
+function perSquare(n) {
+  const sqrt = Math.sqrt(n);
+  return sqrt === Math.floor(sqrt);
+}
+
+// check for Fibonacci
+function isFib(num) {
+  return perSquare(5 * num * num + 4) || perSquare(5 * num * num - 4);
+}
+
+app.listen(3000, () => {
+  console.log("I am working");
+});
